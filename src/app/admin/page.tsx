@@ -12,10 +12,6 @@ export default async function AdminDashboard() {
       orderBy: { createdAt: 'desc' },
       take: 5,
       include: { categories: true },
-      select: {
-        id: true, title: true, status: true, createdAt: true, viewCount: true,
-        slug: true, categories: true,
-      },
     }),
   ])
 

@@ -1,10 +1,7 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
@@ -18,28 +15,16 @@ export const metadata: Metadata = {
     locale: 'ja_JP',
     siteName: process.env.NEXT_PUBLIC_SITE_NAME || 'GameLog',
   },
-  twitter: {
-    card: 'summary_large_image',
-  },
-  alternates: {
-    types: {
-      'application/rss+xml': '/feed.xml',
-    },
-  },
+  twitter: { card: 'summary_large_image' },
+  alternates: { types: { 'application/rss+xml': '/feed.xml' } },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja" className="dark">
-      <body className={inter.className}>
+      <body style={{ fontFamily: 'system-ui, sans-serif' }}>
         <Header />
-        <main className="pt-16">
-          {children}
-        </main>
+        <main className="pt-16">{children}</main>
         <Footer />
       </body>
     </html>
