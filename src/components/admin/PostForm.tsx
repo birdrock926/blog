@@ -341,7 +341,7 @@ export default function PostForm({ post, categories, tags }: PostFormProps) {
               type="text"
               value={newTag}
               onChange={e => setNewTag(e.target.value)}
-              onKeyDown={e => e.key === 'Enter' && (e.preventDefault(), handleAddTag())}
+              onKeyDown={e => { if (e.key === 'Enter') { e.preventDefault(); handleAddTag(); } }}
               placeholder="新しいタグ"
               className="flex-1 bg-[#16213e] border border-[#2d2d5e] rounded-lg px-2 py-1.5 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 text-xs"
             />

@@ -49,7 +49,7 @@ export default function AdminMediaPage() {
   const handleDelete = async (id: string) => {
     if (!confirm('このファイルを削除しますか？')) return
     // Delete from media table (file cleanup would be server-side)
-    await fetch(`/api/media`, { method: 'DELETE' })
+    await fetch(`/api/media/${id}`, { method: 'DELETE' })
     fetchMedia()
   }
 
