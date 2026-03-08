@@ -2,7 +2,8 @@ import { PrismaClient } from '@prisma/client'
 import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3'
 import bcrypt from 'bcryptjs'
 
-const dbUrl = (process.env.DATABASE_URL || 'file:./dev.db').replace(/^file:/, '')
+// DATABASE_URL uses "file:./dev.db" format; PrismaBetterSqlite3 expects the path without the "file:" prefix
+const dbUrl = (process.env.DATABASE_URL ?? 'file:./dev.db').replace(/^file:/, '')
 const adapter = new PrismaBetterSqlite3({ url: dbUrl })
 const prisma = new PrismaClient({ adapter })
 
